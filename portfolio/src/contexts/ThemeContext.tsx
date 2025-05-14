@@ -29,22 +29,32 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setMounted(true);
     
     // Get theme from localStorage
-    const savedTheme = localStorage.getItem('portfolio-theme') as ThemeType;
-    
-    // If there's a saved theme, use it
-    if (savedTheme && ['terminal', 'linkedin', 'messaging', 'game'].includes(savedTheme)) {
-      setTheme(savedTheme);
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('portfolio-theme') as ThemeType;
+      
+      // If there's a saved theme, use it
+      if (savedTheme && ['terminal', 'linkedin', 'messaging', 'game'].includes(savedTheme)) {
+        setTheme(savedTheme);
+      }
     }
+    
+    // Cleanup function
+    return () => {
+      setMounted(false);
+    };
   }, []);
 
   // Update theme and save to localStorage
   const handleThemeChange = (newTheme: ThemeType) => {
     setTheme(newTheme);
-    localStorage.setItem('portfolio-theme', newTheme);
     
-    // Add or remove theme-specific classes from the body
-    document.body.classList.remove('theme-terminal', 'theme-linkedin', 'theme-messaging', 'theme-game');
-    document.body.classList.add(`theme-${newTheme}`);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('portfolio-theme', newTheme);
+      
+      // Add or remove theme-specific classes from the body
+      document.body.classList.remove('theme-terminal', 'theme-linkedin', 'theme-messaging', 'theme-game');
+      document.body.classList.add(`theme-${newTheme}`);
+    }
   };
 
   // Only render children after mounted to avoid hydration mismatch

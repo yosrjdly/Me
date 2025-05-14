@@ -1,29 +1,30 @@
 'use client';
 
 import React from 'react';
-import { CommandResult } from './CommandRegistry';
 
 interface TerminalOutputProps {
-  result: CommandResult;
+  output: string | React.ReactNode;
+  isHTML?: boolean;
+  isError?: boolean;
 }
 
-export default function TerminalOutput({ result }: TerminalOutputProps) {
-  if (!result.output) return null;
+export default function TerminalOutput({ output, isHTML = false, isError = false }: TerminalOutputProps) {
+  if (!output) return null;
   
   // For HTML output
-  if (result.isHTML) {
+  if (isHTML) {
     return (
       <div 
-        className={`pl-4 ${result.isError ? 'text-red-500' : ''}`}
-        dangerouslySetInnerHTML={{ __html: result.output as string }}
+        className={`pl-4 ${isError ? 'text-terminal-red' : ''}`}
+        dangerouslySetInnerHTML={{ __html: output as string }}
       />
     );
   }
   
   // For text output
   return (
-    <div className={`pl-4 whitespace-pre-wrap break-words ${result.isError ? 'text-red-500' : ''}`}>
-      {result.output}
+    <div className={`pl-4 whitespace-pre-wrap break-words ${isError ? 'text-terminal-red' : ''}`}>
+      {output}
     </div>
   );
 } 

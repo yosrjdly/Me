@@ -1,0 +1,90 @@
+/* Main page styles */
+
+/* Theme Cards */
+.theme-card {
+  transition: all 0.3s ease;
+}
+
+.theme-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Terminal theme classes */
+.terminal-text {
+  font-family: 'Geist Mono', monospace;
+}
+
+.terminal-prompt:before {
+  content: '> ';
+  color: #0FFF50;
+}
+
+/* LinkedIn theme classes */
+.linkedin-card {
+  background-color: white;
+  border-radius: 0.375rem;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Messaging theme classes */
+.message-bubble {
+  border-radius: 18px;
+  padding: 10px 15px;
+  max-width: 80%;
+  margin-bottom: 8px;
+}
+
+.message-sent {
+  background-color: #0B93F6;
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+
+.message-received {
+  background-color: #E5E5EA;
+  color: black;
+  margin-right: auto;
+  border-bottom-left-radius: 4px;
+}
+
+/* Game theme classes */
+.game-button {
+  background: linear-gradient(to bottom, #FF0080, #7928CA);
+  color: white;
+  border: 2px solid white;
+  box-shadow: 0 0 10px rgba(255, 0, 128, 0.7);
+  text-transform: uppercase;
+  font-weight: bold;
+  transform: perspective(500px) rotateX(10deg);
+  transition: all 0.2s ease;
+}
+
+.game-button:hover {
+  transform: perspective(500px) rotateX(0deg) scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.9);
+}
+
+.pixel-border {
+  position: relative;
+}
+
+.pixel-border:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, #FF0080, #7928CA, #4B44F0, #FF0080);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: gradient-border 3s ease infinite;
+}
+
+@keyframes gradient-border {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+} 

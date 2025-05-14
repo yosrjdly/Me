@@ -1,0 +1,132 @@
+{
+    "basics": {
+      "name": "Yosr Jadly",
+      "title": "Full Stack JavaScript Developer",
+      "summary": "Passionate and creative full-stack JavaScript developer with a user-centric mindset and a strong foundation in the MERN stack. I thrive on building impactful, responsive, and functional web and mobile applications that solve real-world problems.",
+      "location": {
+        "city": "Tunis",
+        "country": "Tunisia"
+      },
+      "available": true,
+      "email": "jadlyyosr@gmail.com",
+      "phone": "+216 99 855 238",
+      "website": "https://yourportfolio.com",
+      "avatarUrl": "/images/avatar.jpg"
+    },
+    "bio": {
+      "short": "I'm a full-stack developer building scalable and creative web/mobile apps with React, Node.js, and MongoDB.",
+      "long": "As a passionate full-stack JavaScript developer, I specialize in building interactive applications using the MERN stack, React Native, and Next.js. I'm driven by problem-solving, efficient debugging, and delivering user-friendly digital solutions. I've led and collaborated on various projects such as medical dashboards, artist platforms, real estate platforms, and educational communities. I value clean code, clear logic, and collaborative growth.\n\nPreviously a community leader at Microsoft Engineering Community, I enjoy empowering others, continuous learning, and making tech more accessible. Fluent in Arabic, English, and French, I aim to create technology that resonates globally and functions elegantly."
+    },
+    "social": [
+      {
+        "network": "GitHub",
+        "username": "yosrjadly",
+        "url": "https://github.com/yosrjadly"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "yosrjadly",
+        "url": "https://linkedin.com/in/yosrjadly"
+      }
+    ],
+    "education": [
+      {
+        "institution": "Higher School of Sciences and Technology of Hammam Sousse (ESSTHS)",
+        "degree": "Licence of Science in Mathematics and Computer Science",
+        "startDate": "2023-09-01",
+        "endDate": null,
+        "location": "Sousse, Tunisia",
+        "description": "Focused on problem-solving, algorithms, and full-stack web development. Participated in student communities and built impactful student-focused platforms."
+      },
+      {
+        "institution": "High School",
+        "degree": "Baccalaureate in Mathematics",
+        "startDate": "2021-09-01",
+        "endDate": "2022-06-30",
+        "location": "Tunis, Tunisia",
+        "description": "Graduated with strong foundations in analytical thinking and mathematical reasoning, setting the stage for a technical career in software development."
+      }
+    ],
+    "experience": [
+      {
+        "company": "Microsoft Engineering Community",
+        "position": "Community Leader & Developer",
+        "startDate": "2022-09-01",
+        "endDate": "2023-04-30",
+        "current": false,
+        "location": "Tunis, Tunisia",
+        "description": "Led community events and workshops, mentoring junior developers and organizing technical activities focused on web development and problem-solving.",
+        "technologies": ["JavaScript", "React", "MongoDB", "Community Management"]
+      },
+      {
+        "company": "Freelance Projects",
+        "position": "Full Stack Developer",
+        "startDate": "2023-01-01",
+        "endDate": null,
+        "current": true,
+        "location": "Remote",
+        "description": "Building and maintaining full-stack web and mobile applications for local businesses and initiatives. Projects include medical dashboards, artist portfolios, real estate listing tools, and gym platforms.",
+        "technologies": ["MERN Stack", "React Native", "PostgreSQL", "Cloudinary", "Tailwind CSS"]
+      }
+    ],
+    "skills": {
+      "main": ["React", "Next.js", "Node.js", "MongoDB", "Tailwind CSS", "React Native", "Express.js"],
+      "familiar": ["PostgreSQL", "MySQL", "Firebase", "JWT", "Cloudinary", "UI/UX Design", "Socket.io"]
+    },
+    "languages": [
+      {
+        "language": "Arabic",
+        "fluency": "Native"
+      },
+      {
+        "language": "English",
+        "fluency": "Fluent"
+      },
+      {
+        "language": "French",
+        "fluency": "Fluent"
+      },
+      {
+        "language": "Italian",
+        "fluency": "Beginner"
+      }
+    ],
+    "interests": [
+      "Community Building",
+      "Problem Solving",
+      "Creative UI/UX",
+      "Mobile App Development",
+      "Open Source",
+      "Developer Advocacy",
+      "Educational Technology"
+    ],
+    "testimonials": [
+      {
+        "name": "Sami Ben Ali",
+        "position": "Senior Software Engineer",
+        "text": "Yosr has a rare blend of creativity, precision, and determination. Her ability to pick up new tools quickly and turn ideas into reality is impressive.",
+        "avatarUrl": "/images/testimonials/sami.jpg"
+      },
+      {
+        "name": "Lina Mahjoub",
+        "position": "Tech Community Coordinator",
+        "text": "Yosr's leadership in the Microsoft Engineering Community helped drive impactful engagement and real learning. She is proactive, skilled, and reliable.",
+        "avatarUrl": "/images/testimonials/lina.jpg"
+      }
+    ],
+    "portfolio": {
+      "featured": [
+        "medical-dashboard",
+        "artconnect-gallery",
+        "camping-tips-app"
+      ],
+      "showCaseStudies": true
+    },
+    "preferences": {
+      "theme": "dark",
+      "accentColor": "#2D9596",
+      "fontPreference": "sans-serif",
+      "showAvailabilityStatus": true
+    }
+  }
+  

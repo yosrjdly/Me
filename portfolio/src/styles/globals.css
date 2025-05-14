@@ -1,6 +1,6 @@
 @import "tailwindcss/preflight";
 @tailwind utilities;
-@import "./themes/terminal.css";
+@import "themes/terminal.css";
 
 :root {
   --font-geist-sans: 'Geist', 'Helvetica Neue', Arial, sans-serif;

@@ -1,3 +1,21 @@
+/* Terminal Theme */
+:root.theme-terminal {
+  --background: #000000;
+  --foreground: #f2f2f2;
+  --terminal-green: #00aaff;
+  --terminal-cyan: #06b6d4;
+  --terminal-yellow: #facc15;
+  --terminal-red: #ef4444;
+  --terminal-blue: #3b82f6;
+  --terminal-purple: #a855f7;
+}
+
+body.theme-terminal {
+  background-color: #000000;
+  color: #f2f2f2;
+  font-family: var(--font-geist-mono), monospace;
+}
+
 /* Terminal Theme Specific Styles */
 
 /* Terminal colors */
@@ -6,7 +24,11 @@
 }
 
 .terminal-green {
-  color: #0FFF50;
+  color: #00aaff;
+  text-shadow: 
+    0 0 8px rgba(0, 170, 255, 0.7),
+    0 0 20px rgba(0, 170, 255, 0.4),
+    0 0 30px rgba(0, 170, 255, 0.2);
 }
 
 .terminal-cyan {
@@ -42,9 +64,28 @@
   animation: blink 1s step-end infinite;
 }
 
+.blink {
+  animation: blink 1s step-end infinite;
+}
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+/* Add glowing neon blue effect */
+.glow-blue {
+  color: #00aaff;
+  text-shadow: 
+    0 0 5px rgba(0, 170, 255, 0.8),
+    0 0 15px rgba(0, 170, 255, 0.6),
+    0 0 25px rgba(0, 170, 255, 0.4);
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { text-shadow: 0 0 5px rgba(0, 170, 255, 0.8), 0 0 15px rgba(0, 170, 255, 0.6), 0 0 25px rgba(0, 170, 255, 0.4); }
+  50% { text-shadow: 0 0 15px rgba(0, 170, 255, 0.8), 0 0 35px rgba(0, 170, 255, 0.6), 0 0 50px rgba(0, 170, 255, 0.4); }
 }
 
 /* Terminal glitch effect */
@@ -78,7 +119,7 @@
 
 .terminal-glitch:after {
   left: -2px;
-  text-shadow: -1px 0 #00fff9;
+  text-shadow: -1px 0 #00aaff;
   clip: rect(44px, 450px, 56px, 0);
   animation: glitch-anim2 5s linear infinite alternate-reverse;
 }
@@ -134,7 +175,7 @@
 /* Typing animation */
 .terminal-typing {
   overflow: hidden;
-  border-right: 0.15em solid #0FFF50;
+  border-right: 0.15em solid #00aaff;
   white-space: nowrap;
   margin: 0 auto;
   letter-spacing: 0.15em;
@@ -150,7 +191,7 @@
 
 @keyframes blink-caret {
   from, to { border-color: transparent }
-  50% { border-color: #0FFF50 }
+  50% { border-color: #00aaff }
 }
 
 /* Scanline effect */
@@ -175,7 +216,7 @@
   background: linear-gradient(
     to bottom,
     transparent 50%,
-    rgba(0, 0, 0, 0.05) 51%
+    rgba(0, 170, 255, 0.05) 51%
   );
   background-size: 100% 4px;
   animation: scanlines 1s steps(60) infinite;
@@ -190,9 +231,11 @@
   }
 }
 
-/* CRT screen effect */
+/* CRT screen effect with blue tint */
 .terminal-crt {
   position: relative;
+  background: radial-gradient(ellipse at center, rgba(10, 10, 20, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%),
+              linear-gradient(to bottom, rgba(0, 50, 80, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 .terminal-crt:after {
@@ -238,7 +281,379 @@
 .ascii-art {
   font-family: monospace;
   white-space: pre;
-  line-height: 1;
   font-size: 12px;
-  color: #0FFF50;
+  line-height: 12px;
+}
+
+/* New enhanced terminal styles */
+
+/* Typing effect for new commands */
+.typing-effect {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  color: #00aaff;
+  border-right: 2px solid transparent;
+  animation: typing-cursor 0.8s step-end infinite;
+}
+
+@keyframes typing-cursor {
+  from, to { border-color: transparent; }
+  50% { border-color: #00aaff; }
+}
+
+/* Glitch text effect for cyberpunk emphasis */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+  color: #00aaff;
+  font-weight: bold;
+  text-shadow: 
+    0.05em 0 0 rgba(255, 0, 251, 0.75),
+    -0.025em -0.05em 0 rgba(0, 255, 255, 0.75),
+    0.025em 0.05em 0 rgba(0, 255, 0, 0.75);
+  animation: glitch-text 500ms infinite;
+}
+
+@keyframes glitch-text {
+  0% {
+    text-shadow: 
+      0.05em 0 0 rgba(255, 0, 251, 0.75),
+      -0.025em -0.05em 0 rgba(0, 255, 255, 0.75),
+      0.025em 0.05em 0 rgba(0, 255, 0, 0.75);
+  }
+  14% {
+    text-shadow: 
+      0.05em 0 0 rgba(255, 0, 251, 0.75),
+      -0.025em -0.05em 0 rgba(0, 255, 255, 0.75),
+      0.025em 0.05em 0 rgba(0, 255, 0, 0.75);
+  }
+  15% {
+    text-shadow: 
+      -0.05em -0.025em 0 rgba(255, 0, 251, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 255, 0.75),
+      -0.05em -0.05em 0 rgba(0, 255, 0, 0.75);
+  }
+  49% {
+    text-shadow: 
+      -0.05em -0.025em 0 rgba(255, 0, 251, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 255, 0.75),
+      -0.05em -0.05em 0 rgba(0, 255, 0, 0.75);
+  }
+  50% {
+    text-shadow: 
+      0.025em 0.05em 0 rgba(255, 0, 251, 0.75),
+      0.05em 0 0 rgba(0, 255, 255, 0.75),
+      0 -0.05em 0 rgba(0, 255, 0, 0.75);
+  }
+  99% {
+    text-shadow: 
+      0.025em 0.05em 0 rgba(255, 0, 251, 0.75),
+      0.05em 0 0 rgba(0, 255, 255, 0.75),
+      0 -0.05em 0 rgba(0, 255, 0, 0.75);
+  }
+  100% {
+    text-shadow: 
+      -0.025em 0 0 rgba(255, 0, 251, 0.75),
+      -0.025em -0.025em 0 rgba(0, 255, 255, 0.75),
+      -0.025em -0.05em 0 rgba(0, 255, 0, 0.75);
+  }
+}
+
+/* Matrix effect styles */
+.matrix-effect {
+  color: #00aaff;
+  text-shadow: 0 0 5px #00aaff;
+  font-family: 'Courier New', monospace;
+  white-space: pre;
+  animation: matrix-pulse 2s infinite;
+}
+
+@keyframes matrix-pulse {
+  0%, 100% {
+    text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff;
+  }
+  50% {
+    text-shadow: 0 0 15px #00aaff, 0 0 20px #00aaff;
+  }
+}
+
+/* RPG-style progress bars */
+.progress-bar {
+  display: inline-block;
+  height: 0.75em;
+  width: 100%;
+  background-color: #111;
+  border: 1px solid #333;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #00aaff;
+  background-image: linear-gradient(45deg, 
+    rgba(255, 255, 255, 0.15) 25%, 
+    transparent 25%, 
+    transparent 50%, 
+    rgba(255, 255, 255, 0.15) 50%, 
+    rgba(255, 255, 255, 0.15) 75%, 
+    transparent 75%, 
+    transparent);
+  background-size: 20px 20px;
+  animation: progress-animation 1s linear infinite;
+}
+
+@keyframes progress-animation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 0;
+  }
+}
+
+/* Command prompt styles */
+.command-prompt {
+  color: #00aaff;
+  font-weight: bold;
+}
+
+/* Command history styles */
+.command-history {
+  opacity: 0.8;
+}
+
+/* Command results emphasis */
+.result-emphasis {
+  color: #facc15;
+  font-weight: bold;
+}
+
+/* Terminal heading styles */
+.terminal-heading {
+  color: #06b6d4;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-bottom: 1px solid #06b6d4;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.25em;
+}
+
+/* Login effect styles */
+.login-prompt {
+  color: #00aaff;
+  animation: login-flash 1s ease-in-out;
+}
+
+@keyframes login-flash {
+  0% { color: #00aaff; text-shadow: 0 0 5px #00aaff; }
+  50% { color: #facc15; text-shadow: 0 0 10px #facc15; }
+  100% { color: #00aaff; text-shadow: 0 0 5px #00aaff; }
+}
+
+/* NEW ENHANCED STYLES */
+
+/* Load bar animation for boot diagnostics */
+@keyframes loadBar {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+/* Loading dots for progress indicators */
+.loader-dots {
+  display: inline-flex;
+  align-items: center;
+}
+
+.loader-dots .dot {
+  background-color: #facc15;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  margin: 0 2px;
+  animation: dots-pulse 1.4s infinite ease-in-out;
+}
+
+.loader-dots .dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loader-dots .dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes dots-pulse {
+  0%, 80%, 100% { 
+    transform: scale(0.6);
+    opacity: 0.6;
+  }
+  40% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Password animation with typing */ 
+.password-animation {
+  position: relative;
+  overflow: hidden;
+  animation: password-type 1.5s steps(8, end);
+  white-space: nowrap;
+}
+
+@keyframes password-type {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Biometric scan animation */
+.scan-animation {
+  height: 60px;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(15, 255, 80, 0.2) 50%,
+    transparent 100%
+  );
+  background-size: 100% 30px;
+  background-position: 0 0;
+  animation: scanning 2s linear infinite;
+  border: 1px solid rgba(15, 255, 80, 0.5);
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-animation::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: rgba(15, 255, 80, 0.8);
+  box-shadow: 
+    0 0 10px rgba(15, 255, 80, 0.8),
+    0 0 20px rgba(15, 255, 80, 0.5);
+  animation: scanner-line 2s linear infinite;
+}
+
+@keyframes scanning {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 120px; }
+}
+
+@keyframes scanner-line {
+  0% { top: 0; }
+  100% { top: 60px; }
+}
+
+/* Glitch container for terminal headers */
+.glitch-container {
+  padding: 8px;
+  margin: 8px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.glitch-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(6, 182, 212, 0.1);
+  animation: glitch-bg 2s infinite;
+  z-index: -1;
+}
+
+@keyframes glitch-bg {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-5px, 5px); }
+  40% { transform: translate(-5px, -5px); }
+  60% { transform: translate(5px, 5px); }
+  80% { transform: translate(5px, -5px); }
+}
+
+/* Access granted layout grid */
+.cyber-grid {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Cyber notification banner */
+.cyber-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: #00aaff;
+  animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% { 
+    box-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff; 
+    opacity: 1;
+  }
+  50% { 
+    box-shadow: 0 0 15px #00aaff, 0 0 20px #00aaff; 
+    opacity: 0.8;
+  }
+}
+
+/* Login screen styling */
+.login-screen {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(2px);
+}
+
+/* ASCII logo pulsing */
+pre.text-terminal-green {
+  animation: logo-pulse 4s infinite alternate;
+}
+
+@keyframes logo-pulse {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(15, 255, 80, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(15, 255, 80, 0.8);
+  }
+}
+
+/* Biometric scan container */
+.biometric-scan {
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  background: rgba(6, 182, 212, 0.05);
+  border-radius: 4px;
+}
+
+/* Access granted animation */
+.access-granted {
+  animation: access-fade 0.5s ease-in;
+}
+
+@keyframes access-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 } 

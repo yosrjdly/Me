@@ -2,13 +2,17 @@
 
 import React from 'react';
 import { useTheme } from '../../contexts/ThemeContext';
-import ThemeSwitcher from '../../components/shared/ThemeSwitcher';
+import ThemeSwitcher from '../components/shared/ThemeSwitcher';
 import themeConfigs from '../../lib/themes';
 import Link from 'next/link';
+import Image from 'next/image';
+import { getBasicInfo } from '../../lib/personal';
+import './styles.css';
 
-export default function HomePage() {
+export default function Home() {
   const { theme } = useTheme();
   const currentTheme = themeConfigs[theme];
+  const personalInfo = getBasicInfo();
 
   // The themes available in the portfolio
   const availableThemes = [
@@ -43,109 +47,90 @@ export default function HomePage() {
   ];
 
   return (
-    <main className={`min-h-screen ${currentTheme.mainColors.background}`}>
-      <div className="container mx-auto px-4 py-12">
-        <div className="flex flex-col items-center">
-          <div className="absolute top-4 right-4">
-            <ThemeSwitcher />
+    <main className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-gray-900 to-black text-white">
+      {/* Animated cyberpunk background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/20 via-transparent to-teal-900/20"></div>
+      </div>
+      
+      <div className="relative z-10 container mx-auto text-center max-w-4xl">
+        <h1 className="text-6xl md:text-7xl font-bold mb-6 glitch-text" data-text={personalInfo.name}>
+          {personalInfo.name}
+        </h1>
+        
+        <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+          {personalInfo.title}
+        </p>
+        
+        <div className="relative w-full h-96 mb-10 overflow-hidden rounded-xl border-2 border-terminal-green shadow-2xl">
+          <div className="absolute inset-0 bg-terminal-bg flex items-center justify-center">
+            <div className="text-center">
+              <div className="terminal-ascii text-terminal-green mb-4">
+            ██╗   ██╗ ██████╗ ███████╗██████╗         ██╗ █████╗ ██████╗ ██╗  ██╗   ██╗
+            ╚██╗ ██╔╝██╔═══██╗██╔════╝██╔══██╗        ██║██╔══██╗██╔══██╗██║  ╚██╗ ██╔╝
+             ╚████╔╝ ██║   ██║███████╗██████╔╝        ██║███████║██║  ██║██║   ╚████╔╝ 
+              ╚██╔╝  ██║   ██║╚════██║██╔══██╗   ██   ██║██╔══██║██║  ██║██║    ╚██╔╝  
+               ██║   ╚██████╔╝███████║██║  ██║██╗╚█████╔╝██║  ██║██████╔╝███████╗██║   
+               ╚═╝    ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝ ╚════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝   
+              </div>
+              <div className="flex justify-center items-center mb-4">
+                <div className="text-terminal-cyan font-bold mr-2">
+                  <span className="text-terminal-purple">yosr</span>
+                  <span className="text-terminal-cyan">@</span>
+                  <span className="text-terminal-green">portfolio</span>
+                  <span className="text-terminal-cyan"> $</span>
+                </div>
+                <div className="typing-effect terminal-typing">
+                  Interactive Terminal Experience
+                </div>
+              </div>
+              <div className="mt-6">
+                <Link href="/themes/terminal" className="inline-block px-6 py-3 bg-terminal-green text-black font-bold rounded-md hover:bg-terminal-green/80 transition-all duration-300 shadow-glow">
+                  {'>'}START TERMINAL SESSION
+                </Link>
+              </div>
+            </div>
           </div>
           
-          <section className="mt-16 text-center">
-            <h1 className={`text-5xl ${currentTheme.fontFamily.heading} ${currentTheme.mainColors.primary} mb-8`}>
-              {theme === 'terminal' 
-                ? '> Welcome to my Portfolio' 
-                : theme === 'linkedin'
-                ? 'Professional Portfolio'
-                : theme === 'messaging'
-                ? 'Hey there! 👋'
-                : 'GAME ON: Portfolio Quest'}
-            </h1>
-            
-            <p className={`text-lg ${currentTheme.fontFamily.body} ${currentTheme.mainColors.text} max-w-2xl mx-auto`}>
-              {theme === 'terminal'
-                ? 'Type "help" to see available commands or use the menu to navigate.'
-                : theme === 'linkedin'
-                ? 'Full-stack developer with expertise in modern web technologies.'
-                : theme === 'messaging'
-                ? 'I\'m a developer who loves creating beautiful, interactive experiences. Swipe through my projects!'
-                : 'Select a project to begin your adventure through my coding universe. Each project is a new level!'}
-            </p>
-          </section>
+          {/* Scanline effect */}
+          <div className="absolute inset-0 terminal-scanlines pointer-events-none"></div>
           
-          {/* Theme Selector Section */}
-          <section className="mt-16 w-full max-w-4xl">
-            <h2 className={`text-2xl ${currentTheme.fontFamily.heading} ${currentTheme.mainColors.primary} mb-6 text-center`}>
-              {theme === 'terminal' 
-                ? '> select_theme' 
-                : 'Choose a Theme Experience'}
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {availableThemes.map((themeOption) => (
-                <Link 
-                  key={themeOption.name} 
-                  href={themeOption.path}
-                  className={`p-6 ${currentTheme.uiElements.borderRadius} ${currentTheme.uiElements.hoverEffect} cursor-pointer transition-all duration-300 ${
-                    theme === 'terminal'
-                      ? 'border border-terminal-green hover:bg-terminal-highlight'
-                      : 'shadow-lg hover:shadow-xl'
-                  }`}
-                >
-                  <div className={`h-12 w-12 rounded-full mb-4 flex items-center justify-center text-white text-2xl bg-gradient-to-r ${themeOption.gradient}`}>
-                    {themeOption.icon}
-                  </div>
-                  <h3 className={`text-xl ${currentTheme.fontFamily.heading} ${currentTheme.mainColors.primary} mb-2`}>
-                    {theme === 'terminal' ? `> ${themeOption.name.toLowerCase()}` : themeOption.name}
-                  </h3>
-                  <p className={`${currentTheme.fontFamily.body} ${currentTheme.mainColors.text}`}>
-                    {themeOption.description}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </section>
+          {/* CRT edges effect */}
+          <div className="absolute inset-0 terminal-crt pointer-events-none"></div>
+        </div>
+        
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold mb-3 text-gray-100">Experience My Portfolio In Different UI Metaphors</h2>
+          <p className="text-gray-400 mb-6">
+            Choose how you want to explore my work and skills through these unique interactive experiences
+          </p>
           
-          <section className="mt-16 w-full max-w-4xl">
-            <h2 className={`text-2xl ${currentTheme.fontFamily.heading} ${currentTheme.mainColors.primary} mb-6 text-center`}>
-              {theme === 'terminal' 
-                ? '> quick_navigation' 
-                : 'Quick Navigation'}
-            </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Link href="/themes/terminal" className="theme-card p-5 rounded-lg bg-black/50 border-2 border-terminal-green hover:bg-terminal-green/10 transition-all duration-300">
+              <h3 className="text-xl font-bold mb-2 text-terminal-green">Terminal</h3>
+              <p className="text-gray-400 mb-2">Command-line interface with cyberpunk styling and interactive commands</p>
+              <div className="text-terminal-green text-sm">cd /themes/terminal</div>
+            </Link>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {['About', 'Projects', 'Skills', 'Contact'].map((item) => (
-                <div
-                  key={item}
-                  className={`p-6 ${currentTheme.uiElements.borderRadius} ${currentTheme.uiElements.hoverEffect} cursor-pointer ${
-                    theme === 'terminal'
-                      ? 'border border-terminal-green'
-                      : theme === 'linkedin'
-                      ? 'bg-white shadow-md'
-                      : theme === 'messaging'
-                      ? 'bg-messaging-secondary'
-                      : 'bg-game-secondary bg-opacity-20 border-2 border-game-primary'
-                  }`}
-                >
-                  <h2 className={`text-xl ${currentTheme.fontFamily.heading} ${currentTheme.mainColors.primary} mb-2`}>
-                    {theme === 'terminal' ? `> ${item.toLowerCase()}` : item}
-                  </h2>
-                  <p className={`${currentTheme.fontFamily.body} ${currentTheme.mainColors.text}`}>
-                    {`${
-                      theme === 'terminal'
-                        ? 'Execute this command to view '
-                        : theme === 'linkedin'
-                        ? 'Click to view professional '
-                        : theme === 'messaging'
-                        ? 'Tap to open a conversation about '
-                        : 'Start quest to discover '
-                    }${item.toLowerCase()}`}
-                  </p>
-                </div>
-              ))}
+            <Link href="/themes/linkedin" className="theme-card p-5 rounded-lg bg-black/50 border-2 border-blue-600 hover:bg-blue-600/10 transition-all duration-300">
+              <h3 className="text-xl font-bold mb-2 text-blue-600">LinkedIn</h3>
+              <p className="text-gray-400 mb-2">Professional portfolio styled like a LinkedIn profile</p>
+              <div className="text-blue-600 text-sm">View professional profile</div>
+            </Link>
+
+            <div className="theme-card p-5 rounded-lg bg-black/50 border-2 border-gray-600 transition-all duration-300 opacity-60">
+              <h3 className="text-xl font-bold mb-2 text-gray-400">More coming soon...</h3>
+              <p className="text-gray-500 mb-2">Messaging and Game themes under development</p>
+              <div className="text-gray-400 text-sm">Stay tuned!</div>
             </div>
-          </section>
+          </div>
         </div>
       </div>
+      
+      <footer className="relative z-10 w-full text-center p-4 text-gray-500 text-sm">
+        &copy; {new Date().getFullYear()} {personalInfo.name} | Interactive Multi-theme Portfolio
+      </footer>
     </main>
   );
 } 

@@ -5,9 +5,14 @@ import React, { useState, useRef, useEffect } from 'react';
 interface TerminalInputProps {
   onSubmit: (command: string) => void;
   onHistoryNavigation: (direction: 'up' | 'down', currentInput: string) => string;
+  prompt?: string;
 }
 
-export default function TerminalInput({ onSubmit, onHistoryNavigation }: TerminalInputProps) {
+export default function TerminalInput({ 
+  onSubmit, 
+  onHistoryNavigation, 
+  prompt = 'yosrjdly@portfolio $' 
+}: TerminalInputProps) {
   const [input, setInput] = useState('');
   const [cursorVisible, setCursorVisible] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -59,10 +64,12 @@ export default function TerminalInput({ onSubmit, onHistoryNavigation }: Termina
       setInput(newInput);
     } else if (e.key === 'Tab') {
       e.preventDefault();
-      // Simple tab completion for demonstration
+      // Enhanced tab completion
       const commands = [
         'help', 'clear', 'projects', 'project', 'skills', 
-        'contact', 'about', 'ls', 'cat', 'whoami', 'sudo', 'exit'
+        'contact', 'about', 'ls', 'cd', 'cat', 'whoami', 'sudo', 'exit',
+        'experience', 'education', 'languages', 'interests', 'matrix', 'hack',
+        'boot'
       ];
       
       if (input) {
@@ -79,7 +86,12 @@ export default function TerminalInput({ onSubmit, onHistoryNavigation }: Termina
   
   return (
     <div className="flex items-center text-terminal-text">
-      <div className="text-terminal-green mr-2 select-none">user@portfolio:~$</div>
+      <div className="text-terminal-cyan font-bold mr-2 select-none">
+        <span className="text-terminal-purple">yosr</span>
+        <span className="text-terminal-cyan">@</span>
+        <span className="text-terminal-green">portfolio</span>
+        <span className="text-terminal-cyan"> $</span>
+      </div>
       <form onSubmit={handleSubmit} className="flex-1 relative">
         <input
           ref={inputRef}
@@ -94,7 +106,7 @@ export default function TerminalInput({ onSubmit, onHistoryNavigation }: Termina
         />
         {/* Custom cursor */}
         <span 
-          className={`absolute h-5 w-2 bg-terminal-green top-0 ${cursorVisible ? 'opacity-70' : 'opacity-0'}`} 
+          className={`absolute h-5 w-2 bg-terminal-cyan top-0 ${cursorVisible ? 'opacity-70' : 'opacity-0'}`} 
           style={{ left: `${input.length * 0.6}ch` }}
         ></span>
       </form>

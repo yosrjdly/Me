@@ -12,6 +12,25 @@ export interface SkillCategory {
   skills: Skill[];
 }
 
+// Convert the JSON data to typed skill data
+export const skillCategories: SkillCategory[] = skillsData as SkillCategory[];
+
+// Flatten all skills into a single array for components that don't need categories
+export const skills: Skill[] = skillCategories.reduce((acc, category) => {
+  return [...acc, ...category.skills];
+}, [] as Skill[]);
+
+// Get skills by category
+export const getSkillsByCategory = (categoryName: string): Skill[] => {
+  const category = skillCategories.find(c => c.category === categoryName);
+  return category ? category.skills : [];
+};
+
+// Get top skills by level
+export const getTopSkills = (count: number = 5): Skill[] => {
+  return [...skills].sort((a, b) => b.level - a.level).slice(0, count);
+};
+
 // Get all skill categories
 export function getAllSkillCategories(): SkillCategory[] {
   return skillsData as SkillCategory[];
@@ -27,13 +46,6 @@ export function getSkillCategoryByName(name: string): SkillCategory | undefined 
 // Get all skills flattened into a single array
 export function getAllSkills(): Skill[] {
   return getAllSkillCategories().flatMap((category) => category.skills);
-}
-
-// Get top skills by level (highest level first)
-export function getTopSkills(count: number = 5): Skill[] {
-  return getAllSkills()
-    .sort((a, b) => b.level - a.level)
-    .slice(0, count);
 }
 
 // Get skills above a certain level

@@ -1,15 +1,82 @@
 @import "tailwindcss";
 
+/* Import theme CSS files */
+@import "../styles/themes/terminal.css";
+@import "../styles/themes/linkedin.css";
+
 :root {
+  --font-geist-sans: 'Geist', 'Helvetica Neue', Arial, sans-serif;
+  --font-geist-mono: 'Geist Mono', Consolas, monospace;
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Terminal theme colors */
+  --color-terminal-bg: #0a0a0a;
+  --color-terminal-text: #F2F2F2;
+  --color-terminal-green: #0FFF50;
+  --color-terminal-cyan: #06b6d4;
+  --color-terminal-yellow: #facc15;
+  --color-terminal-red: #ef4444;
+  --color-terminal-blue: #3b82f6;
+  --color-terminal-purple: #a855f7;
+  --color-terminal-highlight: #1A1A1A;
+  --color-terminal-darkGreen: #057a55;
+  --color-terminal-matrix: #00FF41;
+  
+  /* LinkedIn theme colors */
+  --color-linkedin-bg: #F3F2EF;
+  --color-linkedin-primary: #0A66C2;
+  --color-linkedin-text: #191919;
+  --color-linkedin-secondary: #00000099;
+  
+  /* Modern theme colors */
+  --color-theme-primary: #00BFA6;
+  --color-theme-secondary: #64CCC5;
+  --color-theme-accent: #176B87;
+  --color-theme-light: #DAFFFB;
+  --color-theme-background: #f7f9fc;
+  --color-theme-card: #ffffff;
+  --color-theme-text: #333333;
+  --color-theme-text-light: #666666;
+  --color-theme-border: #e1e8f0;
+  
+  /* Messaging theme colors */
+  --color-messaging-bg: #FFFFFF;
+  --color-messaging-primary: #0B93F6;
+  --color-messaging-secondary: #E5E5EA;
+  --color-messaging-text: #000000;
+  
+  /* Game theme colors */
+  --color-game-bg: #1A1A2E;
+  --color-game-primary: #FF0080;
+  --color-game-secondary: #4B44F0;
+  --color-game-text: #FFFFFF;
+}
+
+/* Global theme classes */
+.theme-terminal {
+  background-color: var(--color-terminal-bg);
+  color: var(--color-terminal-text);
+}
+
+.theme-linkedin {
+  background-color: var(--color-theme-background);
+  color: var(--color-theme-text);
+}
+
+.theme-messaging {
+  background-color: var(--color-messaging-bg);
+  color: var(--color-messaging-text);
+}
+
+.theme-game {
+  background-color: var(--color-game-bg);
+  color: var(--color-game-text);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +86,88 @@
   }
 }
 
+/* Base styles */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* CSS reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(209, 213, 219, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(107, 114, 128, 0.6);
+  border-radius: 9999px;
+}
+
+/* Terminal theme scrollbar */
+.theme-terminal::-webkit-scrollbar-track {
+  background-color: var(--color-terminal-bg);
+}
+
+.theme-terminal::-webkit-scrollbar-thumb {
+  background-color: rgba(15, 255, 80, 0.6);
+}
+
+/* LinkedIn modern theme scrollbar */
+.theme-linkedin::-webkit-scrollbar-track {
+  background-color: var(--color-theme-background);
+}
+
+.theme-linkedin::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 191, 166, 0.6);
+}
+
+/* Theme transitions */
+.theme-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Common animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+  from { 
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideInFromBottom 0.5s ease-out forwards;
+}
+
+/* Staggered animations helpers */
+.stagger-delay-1 { animation-delay: 0.1s; }
+.stagger-delay-2 { animation-delay: 0.2s; }
+.stagger-delay-3 { animation-delay: 0.3s; }
+.stagger-delay-4 { animation-delay: 0.4s; }
+.stagger-delay-5 { animation-delay: 0.5s; }
