@@ -18,13 +18,46 @@ A creative developer portfolio that features radical UI metaphor switching, with
 - **Responsive Design**: Works across all device sizes.
 - **Sample Data**: Project and skill data with utility functions for accessing data.
 - **Animation Utilities**: Theme-specific animation presets ready to use.
+- **Terminal Theme**: Cyberpunk-inspired terminal interface with interactive commands, command history, and special effects.
 
 ## Themes
 
-1. **Terminal Theme**: A retro command-line interface with monospace fonts and green text.
-2. **LinkedIn Theme**: Professional layout inspired by LinkedIn with cards and professional styling.
-3. **Messaging Theme**: Modern chat-inspired interface with message bubbles and conversational UI.
-4. **Game Theme**: Retro arcade game interface with vibrant colors and playful interactions.
+### 1. Terminal Theme (Implemented)
+
+A retro command-line interface with a cyberpunk twist—dark backgrounds, neon green text, and monospace fonts.
+
+**Key Features:**
+- Interactive command line with history navigation (up/down arrows)
+- Command auto-completion with Tab key
+- Authentic terminal boot sequence
+- File system simulation (ls, cat)
+- Project and skills viewing through commands
+- Loading animations and typing effects
+- Easter eggs and hidden commands (try `sudo rm -rf /`)
+- Glitch effects and CRT screen simulation
+
+**Commands:**
+- `help` - Display available commands
+- `clear` - Clear the terminal
+- `projects` - List all projects
+- `project [name]` - View project details
+- `skills` - List skills by category
+- `ls [-l] [-a]` - List "files" with optional flags
+- `cat [file]` - View file contents
+- `contact` - Show contact info
+- `/crash`, `/matrix`, `/glitch` - Special effects
+
+### 2. LinkedIn Theme (Planned)
+
+Professional layout inspired by LinkedIn with cards and professional styling.
+
+### 3. Messaging Theme (Planned)
+
+Modern chat-inspired interface with message bubbles and conversational UI.
+
+### 4. Game Theme (Planned)
+
+Retro arcade game interface with vibrant colors and playful interactions.
 
 ## Project Structure
 
@@ -36,13 +69,20 @@ The project follows a feature-based architecture with theme-specific components 
 │   ├── 📂 (main)/         # Default layout group
 │   │   ├── layout.tsx     # Shared base layout with theme provider
 │   │   └── page.tsx       # Homepage with theme selector
+│   ├── 📂 themes/         # Theme-specific pages
+│       ├── terminal/      # Terminal theme implementation
+│       └── ...            # Other themes (to be implemented)
 │
 ├── 📂 components/         # Reusable UI components
 │   ├── 📂 shared/         # Theme-agnostic components
+│   │   └── ThemeSwitcher.tsx # Global theme selector
 │   ├── 📂 terminal/       # Terminal-specific components
-│   ├── 📂 linkedin/       # LinkedIn-specific components
-│   ├── 📂 messaging/      # Messaging-specific components
-│   └── 📂 game/           # Game-specific components
+│   │   ├── Terminal.tsx   # Main terminal container
+│   │   ├── TerminalInput.tsx # Command input with history
+│   │   ├── TerminalOutput.tsx # Command output display
+│   │   ├── TerminalLoading.tsx # Loading animations
+│   │   └── CommandRegistry.ts # Command definitions
+│   └── 📂 [other themes]  # Other theme components (to be added)
 │
 ├── 📂 contexts/           # State management
 │   └── ThemeContext.tsx   # Theme state and switching logic
@@ -55,7 +95,8 @@ The project follows a feature-based architecture with theme-specific components 
 │
 ├── 📂 styles/             # CSS/SCSS
 │   ├── globals.css        # Global styles and theme classes
-│   └── themes/            # Theme-specific styles (WIP)
+│   └── themes/            # Theme-specific styles
+│       └── terminal.css   # Terminal theme special effects
 │
 └── 📂 data/               # Static data
     ├── projects.json      # Project data
@@ -76,10 +117,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Next Steps
 
-- Implement theme-specific components for each UI metaphor
-- Add projects section with case studies
-- Develop interactive process diagrams
+- Implement LinkedIn theme with professional styling and skill endorsements
+- Develop Messaging theme with chat bubbles and conversation-like flow
+- Create Game theme with pixel art and game mechanics
 - Add more micro-interactions and animations for each theme
+- Enhance project showcase with interactive case studies
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
