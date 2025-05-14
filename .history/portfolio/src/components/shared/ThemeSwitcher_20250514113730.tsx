@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useTheme, ThemeType } from '../../contexts/ThemeContext';
-import themeConfigs from '../../lib/themes';
+import { useTheme, ThemeType } from '@/contexts/ThemeContext';
+import themeConfigs from '@/lib/themes';
 
 export default function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();

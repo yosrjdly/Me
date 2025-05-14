@@ -3,7 +3,7 @@
 import React from 'react';
 import { useTheme } from '../../contexts/ThemeContext';
 import ThemeSwitcher from '../../components/shared/ThemeSwitcher';
-import themeConfigs from '../../lib/themes';
+import themeConfigs from '../../';
 
 export default function HomePage() {
   const { theme } = useTheme();

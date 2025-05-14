@@ -4,7 +4,7 @@
 // Implemented as basic CSS classes for now, but can be extended
 // with GSAP or Framer Motion
 
-import { ThemeType } from '../contexts/ThemeContext';
+import { ThemeType } from '@/contexts/ThemeContext';
 
 // Animation variants by theme
 export const fadeInVariants = {

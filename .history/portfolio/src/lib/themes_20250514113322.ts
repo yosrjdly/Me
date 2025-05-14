@@ -1,4 +1,4 @@
-import { ThemeType } from '../contexts/ThemeContext';
+import { ThemeType } from '../';
 
 // Interface for theme configuration
 export interface ThemeConfig {
