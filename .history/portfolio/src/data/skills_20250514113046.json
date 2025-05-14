@@ -1,0 +1,142 @@
+[
+  {
+    "category": "Frontend",
+    "skills": [
+      {
+        "name": "React.js",
+        "level": 90,
+        "experience": "5 years",
+        "icon": "💻"
+      },
+      {
+        "name": "Next.js",
+        "level": 85,
+        "experience": "3 years",
+        "icon": "⚡"
+      },
+      {
+        "name": "TypeScript",
+        "level": 80,
+        "experience": "4 years",
+        "icon": "🔷"
+      },
+      {
+        "name": "TailwindCSS",
+        "level": 95,
+        "experience": "3 years",
+        "icon": "🎨"
+      },
+      {
+        "name": "GSAP/Framer Motion",
+        "level": 75,
+        "experience": "2 years",
+        "icon": "🎭"
+      }
+    ]
+  },
+  {
+    "category": "Backend",
+    "skills": [
+      {
+        "name": "Node.js",
+        "level": 85,
+        "experience": "4 years",
+        "icon": "🟢"
+      },
+      {
+        "name": "Express",
+        "level": 80,
+        "experience": "4 years",
+        "icon": "🚂"
+      },
+      {
+        "name": "MongoDB",
+        "level": 75,
+        "experience": "3 years",
+        "icon": "🍃"
+      },
+      {
+        "name": "GraphQL",
+        "level": 70,
+        "experience": "2 years",
+        "icon": "⚛️"
+      },
+      {
+        "name": "PostgreSQL",
+        "level": 65,
+        "experience": "2 years",
+        "icon": "🐘"
+      }
+    ]
+  },
+  {
+    "category": "Tools & Deployment",
+    "skills": [
+      {
+        "name": "Git/GitHub",
+        "level": 90,
+        "experience": "5 years",
+        "icon": "🐙"
+      },
+      {
+        "name": "Docker",
+        "level": 75,
+        "experience": "3 years",
+        "icon": "🐳"
+      },
+      {
+        "name": "AWS",
+        "level": 70,
+        "experience": "2 years",
+        "icon": "☁️"
+      },
+      {
+        "name": "CI/CD",
+        "level": 80,
+        "experience": "3 years",
+        "icon": "🔄"
+      },
+      {
+        "name": "Vercel/Netlify",
+        "level": 85,
+        "experience": "3 years",
+        "icon": "▲"
+      }
+    ]
+  },
+  {
+    "category": "Design & UX",
+    "skills": [
+      {
+        "name": "Figma",
+        "level": 85,
+        "experience": "3 years",
+        "icon": "🎨"
+      },
+      {
+        "name": "UI/UX Design",
+        "level": 80,
+        "experience": "4 years",
+        "icon": "🎯"
+      },
+      {
+        "name": "Responsive Design",
+        "level": 90,
+        "experience": "5 years",
+        "icon": "📱"
+      },
+      {
+        "name": "Accessibility",
+        "level": 75,
+        "experience": "3 years",
+        "icon": "♿"
+      },
+      {
+        "name": "Design Systems",
+        "level": 80,
+        "experience": "2 years",
+        "icon": "🧩"
+      }
+    ]
+  }
+] 

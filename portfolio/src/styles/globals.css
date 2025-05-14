@@ -1,0 +1,65 @@
+@import "tailwindcss/preflight";
+@tailwind utilities;
+
+:root {
+  --font-geist-sans: 'Geist', 'Helvetica Neue', Arial, sans-serif;
+  --font-geist-mono: 'Geist Mono', Consolas, monospace;
+}
+
+/* Global theme classes */
+.theme-terminal {
+  @apply bg-terminal-bg text-terminal-text;
+}
+
+.theme-linkedin {
+  @apply bg-linkedin-bg text-linkedin-text;
+}
+
+.theme-messaging {
+  @apply bg-messaging-bg text-messaging-text;
+}
+
+.theme-game {
+  @apply bg-game-bg text-game-text;
+}
+
+/* Base styles */
+body {
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* CSS reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-opacity-10 bg-gray-300;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-opacity-60 bg-gray-500 rounded-full;
+}
+
+/* Terminal theme scrollbar */
+.theme-terminal::-webkit-scrollbar-track {
+  @apply bg-terminal-bg;
+}
+
+.theme-terminal::-webkit-scrollbar-thumb {
+  @apply bg-terminal-green bg-opacity-60;
+}
+
+/* Theme transitions */
+.theme-transition {
+  transition: all 0.3s ease-in-out;
+} 

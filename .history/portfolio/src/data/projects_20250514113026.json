@@ -1,0 +1,116 @@
+[
+  {
+    "id": "ecommerce-app",
+    "title": "E-Commerce Platform",
+    "slug": "ecommerce-app",
+    "summary": "Full-stack e-commerce platform with real-time inventory management",
+    "description": "This e-commerce platform provides a seamless shopping experience with a modern UI, real-time inventory tracking, and secure payment processing. Built on Next.js with a focus on performance and SEO.",
+    "tags": ["Next.js", "TypeScript", "MongoDB", "Stripe", "TailwindCSS"],
+    "thumbnail": "/projects/ecommerce-thumb.jpg",
+    "demoUrl": "https://demo-ecommerce.example.com",
+    "githubUrl": "https://github.com/username/ecommerce-app",
+    "process": [
+      {
+        "phase": "Planning",
+        "description": "User stories, wireframing, and architecture planning",
+        "duration": "2 weeks"
+      },
+      {
+        "phase": "Design",
+        "description": "UI/UX design in Figma with component system",
+        "duration": "3 weeks"
+      },
+      {
+        "phase": "Development",
+        "description": "Frontend and backend implementation",
+        "duration": "8 weeks"
+      },
+      {
+        "phase": "Testing",
+        "description": "User testing, performance optimization",
+        "duration": "2 weeks"
+      },
+      {
+        "phase": "Deployment",
+        "description": "CI/CD setup, monitoring configuration",
+        "duration": "1 week"
+      }
+    ]
+  },
+  {
+    "id": "ai-dashboard",
+    "title": "AI Analytics Dashboard",
+    "slug": "ai-dashboard",
+    "summary": "Real-time AI model performance monitoring dashboard",
+    "description": "A comprehensive dashboard for monitoring AI model performance metrics, featuring real-time data visualization, anomaly detection, and automated alerts for model drift.",
+    "tags": ["React", "D3.js", "Python", "TensorFlow", "AWS"],
+    "thumbnail": "/projects/ai-dashboard-thumb.jpg",
+    "demoUrl": "https://ai-dashboard.example.com",
+    "githubUrl": "https://github.com/username/ai-dashboard",
+    "process": [
+      {
+        "phase": "Research",
+        "description": "Analysis of key metrics for AI performance",
+        "duration": "3 weeks"
+      },
+      {
+        "phase": "Architecture",
+        "description": "System design with data flow planning",
+        "duration": "2 weeks"
+      },
+      {
+        "phase": "Frontend",
+        "description": "Dashboard UI with real-time charts",
+        "duration": "4 weeks"
+      },
+      {
+        "phase": "Backend",
+        "description": "API and data processing pipeline",
+        "duration": "5 weeks"
+      },
+      {
+        "phase": "Deployment",
+        "description": "Cloud deployment with auto-scaling",
+        "duration": "2 weeks"
+      }
+    ]
+  },
+  {
+    "id": "mobile-fitness",
+    "title": "Mobile Fitness Tracker",
+    "slug": "mobile-fitness",
+    "summary": "Cross-platform fitness app with personalized workout plans",
+    "description": "A React Native fitness application that provides personalized workout plans, progress tracking, and social features to keep users motivated on their fitness journey.",
+    "tags": ["React Native", "Firebase", "Redux", "GraphQL", "Expo"],
+    "thumbnail": "/projects/fitness-thumb.jpg",
+    "demoUrl": "https://fitness-app.example.com",
+    "githubUrl": "https://github.com/username/fitness-app",
+    "process": [
+      {
+        "phase": "User Research",
+        "description": "Competitor analysis and user interviews",
+        "duration": "2 weeks"
+      },
+      {
+        "phase": "UX Design",
+        "description": "User flows and wireframing",
+        "duration": "3 weeks"
+      },
+      {
+        "phase": "Development",
+        "description": "Cross-platform implementation",
+        "duration": "10 weeks"
+      },
+      {
+        "phase": "Beta Testing",
+        "description": "User feedback and iteration",
+        "duration": "4 weeks"
+      },
+      {
+        "phase": "Release",
+        "description": "App store submission and marketing",
+        "duration": "2 weeks"
+      }
+    ]
+  }
+] 
